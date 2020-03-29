@@ -4,6 +4,19 @@
 
 {% block body %}
 <div class="container mt-4">
-    
+    <div class="row flex">
+
+        {% for album in albums %}
+        <div class="col-3 mt-4">
+            <div class="card">
+                <img class="card-img-top" src="https://i.imgur.com/c3Onlpi.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text text-center">{{ album.album_titre }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
 </div>
 {% endblock %}

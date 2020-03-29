@@ -2,49 +2,16 @@
 
 namespace App\Repository;
 
-use App\Entity\Album;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use App\DatabaseConnection;
+use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Component\HttpKernel\KernelInterface;
 
-/**
- * @method Album|null find($id, $lockMode = null, $lockVersion = null)
- * @method Album|null findOneBy(array $criteria, array $orderBy = null)
- * @method Album[]    findAll()
- * @method Album[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- */
-class AlbumRepository extends ServiceEntityRepository
+class AlbumRepository 
 {
-    public function __construct(ManagerRegistry $registry)
+    public function findAll()
     {
-        parent::__construct($registry, Album::class);
+        $pdo = DatabaseConnection::getDatabaseConnection();
+        $result = $pdo->query("SELECT * FROM album")->fetchAll(\PDO::FETCH_CLASS, 'App\Entity\Album');
+        return $result;
     }
-
-    // /**
-    //  * @return Album[] Returns an array of Album objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Album
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

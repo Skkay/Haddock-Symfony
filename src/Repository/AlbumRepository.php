@@ -34,4 +34,17 @@ class AlbumRepository
         ")->fetch();
         return $result['nb_jurons'];
     }
+
+    public function findAllJurons($ref)
+    {
+        $pdo = DatabaseConnection::getDatabaseConnection();
+        $result = $pdo->query(
+           "SELECT jurons.jurons_texte, se_trouver_bulle.num_page 
+            FROM jurons, se_trouver_bulle, album 
+            WHERE jurons.jurons_num = se_trouver_bulle.jurons_num 
+            AND se_trouver_bulle.ref_album LIKE album.album_ref 
+            AND album.album_ref = '$ref'
+        ")->fetchAll();
+        return $result;
+    }
 }

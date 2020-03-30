@@ -16,17 +16,29 @@ class AlbumController extends AbstractController
     }
 
     /**
+     * @Route("/albums", name="album.index")
+     */
+    public function index() : Response
+    {
+        $albums = $this->repository->findAll();
+        return $this->render('album/index.html.twig', [
+            'albums' => $albums
+        ]);
+    }
+
+    /**
      * @Route("/albums/{ref}-{slug}", name="album.show")
      */
     public function show($ref, $slug) : Response
     {
         $album = $this->repository->find($ref);
         $nb_jurons = $this->repository->findCountJurons($ref);
-        $album_slug = $album->getSlug();
+        $list_jurons = $this->repository->findAllJurons($ref);
 
+        $album_slug = $album->getSlug();
         if ($album_slug !== $slug) 
 		{
-			return $this->redirectToRoute("album.show", [
+			return $this->redirectToRoute('album.show', [
 				'ref' => $album->album_ref,
 				'slug' => $album_slug
 			], 301);
@@ -34,7 +46,8 @@ class AlbumController extends AbstractController
 
         return $this->render('album/show.html.twig', [
             'album' => $album,
-            'nb_jurons' => $nb_jurons
+            'nb_jurons' => $nb_jurons,
+            'list_jurons' => $list_jurons
         ]);
     }
 }

@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title "Les jurons" %}
+
+{% block body %}
+<div class="container mt-4">
+    <h3>Les jurons du Capitaine Haddock</h3>
+    <p>Tu trouveras ici la liste de tous les jurons que le Capitaine Haddock a pu dire.</p>
+    <ul>
+        {% for juron in jurons %}
+            <li>{{ juron.jurons_texte }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

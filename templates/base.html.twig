@@ -22,13 +22,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" href="#">Albums</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{ path('album.index') }}">Albums</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{ path('jurons.index') }}">Les jurons</a></li>
 					</ul>
 				</div>
 
 			</div>			
 		</nav>
-
+		
 		{% block body %}
 
 		{% endblock %}

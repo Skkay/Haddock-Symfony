@@ -6,12 +6,17 @@
 <div class="container mt-4">
     <div class="jumbotron">
         <div class="media">
-            <img src="https://i.imgur.com/c3Onlpi.jpg" width="157px" height="212px" class="align-self-start mr-3">
+            <img src="https://i.imgur.com/dk9hlMd.png" width="157px" height="212px" class="align-self-start mr-3">
             <div class="media-body">
                 <h5 class="mt-0">{{ album.album_titre }}</h5>
-                C'est l'album n°{{ album.album_tome }} paru en {{ album.album_parution }}. Il contient ces {{ nb_jurons }} jurons :
+                C'est l'album n°{{ album.album_tome }} paru en {{ album.album_parution }}. 
+                {% if nb_jurons < 1 %}Il ne contient aucun juron.{% endif %}
+                {% if nb_jurons == 1 %}Il contient seulement un juron :{% endif %}
+                {% if nb_jurons > 1 %}Il contient ces {{ nb_jurons }} jurons :{% endif %}                
                 <ul>
-
+                    {% for juron in list_jurons %}
+                        <li><b>{{ juron['jurons_texte'] }}</b> à la page {{ juron['num_page'] }}</li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

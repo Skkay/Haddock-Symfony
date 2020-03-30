@@ -3,22 +3,5 @@
 {% block title "Accueil" %}
 
 {% block body %}
-<div class="container mt-4">
-    <div class="jumbotron">
-        <div class="row flex">
-
-            {% for album in albums %}
-            <div class="col-3 mt-4">
-                <div class="card">
-                    <img class="card-img-top" src="https://i.imgur.com/c3Onlpi.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text text-center"><a href="{{ path('album.show', {ref: album.album_ref, slug: album.slug}) }}">{{ album.album_titre }}</a></p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            
-        </div>
-    </div>    
-</div>
+Bienvenue
 {% endblock %}

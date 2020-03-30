@@ -11,6 +11,10 @@
             <li>{{ juron.jurons_texte }}</li>
         {% endfor %}
     </ul>
+
+    <div class="pagination justify-content-center">
+        {{ knp_pagination_render(jurons) }}
+    </div>
 </div>
 
 {% endblock %}

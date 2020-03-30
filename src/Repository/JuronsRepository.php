@@ -11,7 +11,7 @@ class JuronsRepository
     public function findAll()
     {
         $pdo = DatabaseConnection::getDatabaseConnection();
-        $result = $pdo->query("SELECT * FROM jurons")->fetchAll(\PDO::FETCH_CLASS, 'App\Entity\Album');
+        $result = $pdo->query("SELECT * FROM jurons")->fetchAll(\PDO::FETCH_CLASS, 'App\Entity\Jurons');
         return $result;
     }
 }

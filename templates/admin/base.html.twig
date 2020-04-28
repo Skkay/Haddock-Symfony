@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<htmll>
+	<head>
+		<meta charset="UTF-8">
+        <title>{% block title %}Admin Panel{% endblock %}</title>
+		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/bootstrap-grid.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/admin_sidebar.css') }}" />
+        {% block stylesheets %}{% endblock %}
+	</head>
+
+	<body>
+		<div class="d-flex" id="wrapper">
+
+			<!-- Sidebar -->
+			<div class="bg-light border-right" id="sidebar-wrapper">
+				<div class="sidebar-heading">
+                    Administration
+                </div>
+				<div class="list-group list-group-flush">
+					<a href="#" class="list-group-item list-group-item-action bg-light">Albums</a>
+					<a href="#" class="list-group-item list-group-item-action bg-light">Jurons</a>
+				</div>
+			</div>
+
+			<!-- Page Content -->
+			<div id="page-content-wrapper">
+
+				<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+					<button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+							<li class="nav-item active">
+								<a class="nav-link" href="#">Home
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+							{% if app.user %}<li class="nav-item"><a class="nav-link" href="{{ path('logout') }}">Deconnexion</a></li>{% endif %}
+						</ul>
+					</div>
+				</nav>
+
+
+				<div class="container-fluid">
+                    {% block body %}
+
+                    {% endblock %}
+				</div>
+			</div>
+		</div>
+
+		<script src="{{ asset('js/jquery-3.4.1.slim.min.js') }}"></script>
+		<script src="{{ asset('js/popper.min.js') }}"></script>
+		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+		<script>
+			$("#menu-toggle").click(function (e) {
+				e.preventDefault();
+				$("#wrapper").toggleClass("toggled");
+			});
+		</script>
+		{% block javascripts %}{% endblock %}
+	</body>
+</htmll>

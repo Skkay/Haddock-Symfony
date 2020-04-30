@@ -6,7 +6,7 @@
 <div class="container mt-4">
     <div class="jumbotron">
         <div class="media">
-            <img src="https://i.imgur.com/dk9hlMd.png" width="157px" height="212px" class="align-self-start mr-3">
+            <img src="{{ asset('images/albums/') }}{{album.album_image}}.jpg" width="157px" height="212px" class="align-self-start mr-3">
             <div class="media-body">
                 <h5 class="mt-0">{{ album.album_titre }}</h5>
                 C'est l'album n°{{ album.album_tome }} paru en {{ album.album_parution }}. 

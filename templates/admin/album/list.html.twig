@@ -1,0 +1,45 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Album" %}
+
+{% block page_title "Administration - Album" %}
+
+{% block buttons_area %}
+<a href="#" class="btn btn-outline-primary" role="button">Ajouter un album</a>
+{% endblock %}
+
+{% block body %}
+<div class="table-responsive">
+    <table class="table table-hover table-sm table-striped" id="table_albums">
+        <thead>
+            <tr>
+                <th class="text-center">Référence</th>
+                <th>Titre</th>
+                <th class="text-center">Parution</th>
+                <th class="text-center">Tome</th>
+                <th class="text-center">Image</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for album in albums %}
+            <tr>
+                <td class="text-center">{{album.album_ref}}</td>
+                <td>{{album.album_titre}}</td>
+                <td class="text-center">{{album.album_parution}}</td>
+                <td class="text-center">{{album.album_tome}}</td>
+                <td class="text-center"><a href="{{ asset('images/albums/') }}{{album.album_image}}.jpg" target="_blank">{{album.album_image}}</a></td>
+                <td class="text-center">Modifier</td>
+                <td class="text-center">Supprimer</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

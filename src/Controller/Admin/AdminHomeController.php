@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminHomeController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin.home")
+     * @Route("/administration", name="admin.home")
      */
     public function index()
     {

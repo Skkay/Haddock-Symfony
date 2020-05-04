@@ -10,9 +10,9 @@
             {% for album in albums %}
             <div class="col-3 mt-4">
                 <div class="card">
-                    <img class="card-img-top" src="{{ asset('images/albums/') }}{{album.album_image}}.jpg" alt="{{album.album_image}}" width="244px" height="342">
+                    <img class="card-img-top" src="{{ asset('images/albums/') }}{{album.image}}.jpg" alt="{{album.image}}" width="244px" height="342">
                     <div class="card-body">
-                        <p class="card-text text-center"><a href="{{ path('album.show', {ref: album.album_ref, slug: album.slug}) }}">{{ album.album_titre }}</a></p>
+                        <p class="card-text text-center"><a href="{{ path('album.show', {ref: album.ref, slug: album.slug}) }}">{{ album.titre }}</a></p>
                     </div>
                 </div>
             </div>

@@ -1,15 +1,15 @@
 {% extends "base.html.twig" %}
 
-{% block title album.album_titre %}
+{% block title album.titre %}
 
 {% block body %}
 <div class="container mt-4">
     <div class="jumbotron">
         <div class="media">
-            <img src="{{ asset('images/albums/') }}{{album.album_image}}.jpg" width="157px" height="212px" class="align-self-start mr-3">
+            <img src="{{ asset('images/albums/') }}{{album.image}}.jpg" width="157px" height="212px" class="align-self-start mr-3">
             <div class="media-body">
-                <h5 class="mt-0">{{ album.album_titre }}</h5>
-                C'est l'album n°{{ album.album_tome }} paru en {{ album.album_parution }}. 
+                <h5 class="mt-0">{{ album.titre }}</h5>
+                C'est l'album n°{{ album.tome }} paru en {{ album.parution }}. 
                 {% if nb_jurons < 1 %}Il ne contient aucun juron.{% endif %}
                 {% if nb_jurons == 1 %}Il contient seulement un juron :{% endif %}
                 {% if nb_jurons > 1 %}Il contient ces {{ nb_jurons }} jurons :{% endif %}                

@@ -18,19 +18,18 @@
                 <th class="text-center">Parution</th>
                 <th class="text-center">Tome</th>
                 <th class="text-center">Image</th>
-                <th></th>
-                <th></th>
+                <th class="text-center" colspan="2">Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for album in albums %}
             <tr>
-                <td class="text-center">{{album.album_ref}}</td>
-                <td>{{album.album_titre}}</td>
-                <td class="text-center">{{album.album_parution}}</td>
-                <td class="text-center">{{album.album_tome}}</td>
-                <td class="text-center"><a href="{{ asset('images/albums/') }}{{album.album_image}}.jpg" target="_blank">{{album.album_image}}</a></td>
-                <td class="text-center">Modifier</td>
+                <td class="text-center">{{album.ref}}</td>
+                <td>{{album.titre}}</td>
+                <td class="text-center">{{album.parution}}</td>
+                <td class="text-center">{{album.tome}}</td>
+                <td class="text-center"><a href="{{ asset('images/albums/') }}{{album.image}}.jpg" target="_blank">{{album.image}}</a></td>
+                <td class="text-center"><a href="{{ path('admin.album.edit', {ref: album.ref}) }}">Modifier</a></td>
                 <td class="text-center">Supprimer</td>
             </tr>
             {% endfor %}

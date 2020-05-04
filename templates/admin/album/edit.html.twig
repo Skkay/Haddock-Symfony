@@ -1,0 +1,21 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Editer un album" %}
+
+{% block page_title "Administration - Editer un album" %}
+
+{% block buttons_area %}
+<a href="#" class="btn btn-outline-primary" role="button">Ajouter un album</a>
+{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">Ok</button>
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

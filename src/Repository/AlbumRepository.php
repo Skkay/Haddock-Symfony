@@ -47,4 +47,27 @@ class AlbumRepository
         ")->fetchAll();
         return $result;
     }
+
+    public function updateAlbum($ref, $_ref, $_titre, $_parution, $_tome, $_image)
+    {
+        $pdo = DatabaseConnection::getDatabaseConnection();
+        $result = $pdo->prepare(
+           "UPDATE album
+            SET album_ref = :_ref,
+                album_parution = :_parution,
+                album_titre = :_titre,
+                album_tome = :_tome,
+                album_image = :_image
+            WHERE album_ref = :ref
+        ");
+
+        $result->execute(array(
+            "_ref" => $_ref,
+            "_parution" => $_parution,
+            "_titre" => $_titre,
+            "_tome" => $_tome,
+            "_image" => $_image,
+            "ref" => $ref
+        ));
+    }
 }

@@ -5,13 +5,13 @@
 {% block page_title "Administration - Editer un album" %}
 
 {% block buttons_area %}
-<a href="#" class="btn btn-outline-primary" role="button">Ajouter un album</a>
 {% endblock %}
 
 {% block body %}
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn btn-primary">Ok</button>
+    <a href="{{ path('admin.album') }}" class="btn btn-primary" role="button">Retour</a>
+    <button class="btn btn-success">Valider</button>    
 {{ form_end(form) }}
 {% endblock %}
 

@@ -29,6 +29,28 @@ class AdminAlbumController extends AbstractController
     }
 
     /**
+     * @Route("/administration/albums/create", name="admin.album.create")
+     */
+    public function new(Request $request)
+    {
+        $album = new Album();
+        $form = $this->createForm(AlbumType::class, $album);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $data = $form->getData();
+            $this->repository->addAlbum($data->getRef(), $data->getTitre(), $data->getParution(), $data->getTome(), $data->getImage());
+
+            return $this->redirectToRoute('admin.album');
+        }
+
+        return $this->render('admin/album/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
      * @Route("/administration/albums/edit/{ref}", name="admin.album.edit")
      */
     public function edit(Request $request, $ref)

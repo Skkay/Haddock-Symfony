@@ -70,4 +70,21 @@ class AlbumRepository
             "ref" => $ref
         ));
     }
+
+    public function addAlbum($_ref, $_titre, $_parution, $_tome, $_image)
+    {
+        $pdo = DatabaseConnection::getDatabaseConnection();
+        $result = $pdo->prepare(
+           "INSERT INTO album(album_ref, album_titre, album_parution, album_tome, album_image)
+            VALUES (:_ref, :_titre, :_parution, :_tome, :_image)
+        ");
+
+        $result->execute(array(
+            "_ref" => $_ref,
+            "_parution" => $_parution,
+            "_titre" => $_titre,
+            "_tome" => $_tome,
+            "_image" => $_image
+        ));
+    }
 }

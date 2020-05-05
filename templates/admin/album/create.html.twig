@@ -1,0 +1,21 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Créer un album" %}
+
+{% block page_title "Administration - Créer un album" %}
+
+{% block buttons_area %}
+{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a href="{{ path('admin.album') }}" class="btn btn-primary" role="button">Retour</a>
+    <button class="btn btn-success">Ajouter</button>    
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

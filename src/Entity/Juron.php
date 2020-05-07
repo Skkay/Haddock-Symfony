@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Jurons 
+class Juron 
 {
     public $jurons_num;
     public $jurons_texte;

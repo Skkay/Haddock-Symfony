@@ -1,18 +1,18 @@
 <?php
 namespace App\Controller;
 
-use App\Repository\JuronsRepository;
+use App\Repository\JuronRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class JuronsController extends AbstractController
+class JuronController extends AbstractController
 {
     private $repository;
 
-    public function __construct(JuronsRepository $repository)
+    public function __construct(JuronRepository $repository)
     {
         $this->repository = $repository;
     }

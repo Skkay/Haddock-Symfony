@@ -87,4 +87,11 @@ class AlbumRepository
             "_image" => $_image
         ));
     }
+
+    public function deleteAlbum($ref)
+    {
+        $pdo = DatabaseConnection::getDatabaseConnection();
+        $result = $pdo->prepare("DELETE FROM album WHERE album_ref = :ref");
+        $result->execute(array("ref" => $ref));
+    }
 }

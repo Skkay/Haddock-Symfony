@@ -72,4 +72,24 @@ class AdminAlbumController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/administration/albums/delete/{ref}", name="admin.album.delete")
+     */
+    public function delete(Request $request, $ref)
+    {
+        $album = $this->repository->find($ref);
+        $form = $this->createFormBuilder()->getForm();
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->repository->deleteAlbum($ref);
+            return $this->redirectToRoute('admin.album');
+        }
+        return $this->render('admin/album/delete.html.twig', [
+            'album' => $album,
+            'form' => $form->createView()
+        ]);
+    }
 }

@@ -29,8 +29,8 @@
                 <td class="text-center">{{album.parution}}</td>
                 <td class="text-center">{{album.tome}}</td>
                 <td class="text-center"><a href="{{ asset('images/albums/') }}{{album.image}}.jpg" target="_blank">{{album.image}}</a></td>
-                <td class="text-center"><a href="{{ path('admin.album.edit', {ref: album.ref}) }}">Modifier</a></td>
-                <td class="text-center">Supprimer</td>
+                <td class="text-center"><a class="text-success" href="{{ path('admin.album.edit', {ref: album.ref}) }}">Modifier</a></td>
+                <td class="text-center"><a class="text-danger" href="{{ path('admin.album.delete', {ref: album.ref}) }}">Supprimer</a></td>
             </tr>
             {% endfor %}
         </tbody>

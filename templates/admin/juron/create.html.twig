@@ -1,0 +1,22 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Créer un juron" %}
+
+{% block page_title "Administration - Créer un juron" %}
+
+{% block buttons_area %}
+{% endblock %}
+
+{% block body %}
+(note: ne pas afficher le champ "num" (auto_increment))
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a href="{{ path('admin.juron') }}" class="btn btn-primary" role="button">Retour</a>
+    <button class="btn btn-success">Ajouter</button>    
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

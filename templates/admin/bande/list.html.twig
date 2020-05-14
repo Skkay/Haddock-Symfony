@@ -1,0 +1,40 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Bande" %}
+
+{% block page_title "Administration - Bande" %}
+
+{% block buttons_area %}
+<a href="{{ path('admin.bande.create') }}" class="btn btn-outline-primary" role="button">Ajouter une bande</a>
+{% endblock %}
+
+{% block body %}
+<div class="table-responsive">
+    <table class="table table-hover table-sm table-striped" id="table_bandes">
+        <thead>
+            <tr>
+                <th class="text-center">Référence de l'album</th>
+                <th class="text-center">Numéro de page</th>
+                <th class="text-center">Place de la bande</th>
+                <th class="text-center" colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bande in bandes %}
+            <tr>
+                <td class="text-center">{{bande.refAlbum}}</td>
+                <td class="text-center">{{bande.pageNum}}</td>
+                <td class="text-center">{{bande.bandePlace}}</td>
+                <td class="text-center"><a class="text-success" href="{{ path('admin.bande.edit', {ref: bande.refAlbum, num: bande.pageNum, place: bande.bandePlace}) }}">Modifier</a></td>
+                <td class="text-center"><a class="text-danger" href="{{ path('admin.bande.delete', {ref: bande.refAlbum, num: bande.pageNum, place: bande.bandePlace}) }}">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

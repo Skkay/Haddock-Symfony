@@ -1,0 +1,22 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Créer une page" %}
+
+{% block page_title "Administration - Créer une page" %}
+
+{% block buttons_area %}
+{% endblock %}
+
+{% block body %}
+(note: liste déroulante pour selectionner album + inverser num et ref)
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a href="{{ path('admin.page') }}" class="btn btn-primary" role="button">Retour</a>
+    <button class="btn btn-success">Ajouter</button>    
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

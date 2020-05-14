@@ -1,0 +1,22 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Editer une page" %}
+
+{% block page_title "Administration - Editer une page" %}
+
+{% block buttons_area %}
+{% endblock %}
+
+{% block body %}
+(note: ne pas afficher champ ref album)
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a href="{{ path('admin.page') }}" class="btn btn-primary" role="button">Retour</a>
+    <button class="btn btn-success">Valider</button>    
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

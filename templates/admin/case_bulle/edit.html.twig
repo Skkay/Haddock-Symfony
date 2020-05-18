@@ -1,0 +1,22 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Editer une case" %}
+
+{% block page_title "Administration - Editer une case" %}
+
+{% block buttons_area %}
+{% endblock %}
+
+{% block body %}
+(note: ne pas afficher champs ref album, num page, place bande)
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a href="{{ path('admin.case') }}" class="btn btn-primary" role="button">Retour</a>
+    <button class="btn btn-success">Valider</button>    
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

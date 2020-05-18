@@ -1,0 +1,29 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Supprimer une case" %}
+
+{% block page_title "Administration - Supprimer une case" %}
+
+{% block buttons_area %}
+{% endblock %}
+
+{% block body %}
+<h3 class="text-danger">Attention !</h3>
+Vous êtes sur le point de supprimer la case suivante :
+<ul>
+    <li><b>Case :</b> {{ caseBulle.caseNum }}</li>
+    <li><b>À la bande :</b> {{ caseBulle.bandePlace }}</li>
+    <li><b>À la page :</b> {{ caseBulle.pageNum }}</li>
+    <li><b>À l'album :</b> {{ caseBulle.refAlbum }}</li>
+</ul>
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a href="{{ path('admin.case') }}" class="btn btn-primary" role="button">Retour</a>
+    <button class="btn btn-danger">Supprimer</button>    
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

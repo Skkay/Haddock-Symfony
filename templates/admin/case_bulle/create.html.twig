@@ -1,0 +1,22 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Créer une case" %}
+
+{% block page_title "Administration - Créer une case" %}
+
+{% block buttons_area %}
+{% endblock %}
+
+{% block body %}
+(note: listes déroulantes pour selectionner album, page, bande)
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a href="{{ path('admin.case') }}" class="btn btn-primary" role="button">Retour</a>
+    <button class="btn btn-success">Ajouter</button>    
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

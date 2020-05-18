@@ -1,0 +1,41 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Case" %}
+
+{% block page_title "Administration - Case" %}
+
+{% block buttons_area %}
+<a href="{{ path('admin.case.create') }}" class="btn btn-outline-primary" role="button">Ajouter une case</a>
+{% endblock %}
+
+{% block body %}
+<div class="table-responsive">
+    <table class="table table-hover table-sm table-striped" id="table_bandes">
+        <thead>
+            <tr>
+                <th class="text-center">Référence de l'album</th>
+                <th class="text-center">Numéro de page</th>
+                <th class="text-center">Place de la bande</th>
+                <th class="text-center">Numéro de la case</th>
+                <th class="text-center" colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for case in caseBulles %}
+            <tr>
+                <td class="text-center">{{case.refAlbum}}</td>
+                <td class="text-center">{{case.pageNum}}</td>
+                <td class="text-center">{{case.bandePlace}}</td>
+                <td class="text-center">{{case.caseNum}}</td>
+                <td class="text-center"><a class="text-success" href="{{ path('admin.case.edit', {ref: case.refAlbum, num: case.pageNum, place: case.bandePlace, case: case.caseNum}) }}">Modifier</a></td>
+                <td class="text-center"><a class="text-danger" href="{{ path('admin.case.delete', {ref: case.refAlbum, num: case.pageNum, place: case.bandePlace, case: case.caseNum}) }}">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

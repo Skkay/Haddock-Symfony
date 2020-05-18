@@ -52,7 +52,7 @@ class AdminBandeController extends AbstractController
     /**
      * @Route("/administration/bandes/edit/{ref}-{num}-{place}", name="admin.bande.edit")
      */
-    public function edit(Request $request,  $ref, $num, $place)
+    public function edit(Request $request, $ref, $num, $place)
     {
         $bande = $this->repository->find($ref, $num, $place);
         $form = $this->createForm(BandeType::class, $bande);

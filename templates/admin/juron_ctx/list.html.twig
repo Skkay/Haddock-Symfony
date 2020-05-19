@@ -1,0 +1,42 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Juron contextualisé" %}
+
+{% block page_title "Administration - Juron contextualisé" %}
+
+{% block buttons_area %}
+<a href="{{ path('admin.juronctx.create') }}" class="btn btn-outline-primary" role="button">Ajouter un juron contextualisé</a>
+{% endblock %}
+
+{% block body %}
+<div class="table-responsive">
+    <table class="table table-hover table-sm table-striped" id="table_bandes">
+        <thead>
+            <tr>
+                <th class="text-center">Référence de l'album</th>
+                <th class="text-center">Numéro de page</th>
+                <th class="text-center">Place de la bande</th>
+                <th class="text-center">Numéro de la case</th>
+                <th class="text-center">Numéro du juron</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for juron in juronsCtx %}
+            <tr>
+                <td class="text-center">{{juron.refAlbum}}</td>
+                <td class="text-center">{{juron.numPage}}</td>
+                <td class="text-center">{{juron.placeBande}}</td>
+                <td class="text-center">{{juron.numCase}}</td>
+                <td class="text-center">{{juron.num}}</td>
+                <td class="text-center"><a class="text-danger" href="{{ path('admin.juronctx.delete', {ref: juron.refAlbum, num: juron.numPage, place: juron.placeBande, case: juron.numCase, juron: juron.num}) }}">Supprimer</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

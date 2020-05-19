@@ -21,7 +21,7 @@ class JuronRepository
         $result = $pdo->query("SELECT * FROM jurons WHERE jurons_num = '$num'")->fetchObject('App\Entity\Juron');
         return $result;
     }
-
+    /*
     public function findAllOccurrence()
     {
         $pdo = DatabaseConnection::getDatabaseConnection();
@@ -35,7 +35,7 @@ class JuronRepository
         ")->fetchAll(\PDO::FETCH_CLASS, 'App\Entity\Juron');
         return $result;
     }
-
+    */
     public function addJuron($_text)
     {
         $pdo = DatabaseConnection::getDatabaseConnection();

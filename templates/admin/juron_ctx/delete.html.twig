@@ -1,0 +1,30 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title "Administration - Supprimer un juron contextualisé" %}
+
+{% block page_title "Administration - Supprimer un juron contextualisé" %}
+
+{% block buttons_area %}
+{% endblock %}
+
+{% block body %}
+<h3 class="text-danger">Attention !</h3>
+Vous êtes sur le point de supprimer le juron dans son contexte suivant :
+<ul>
+    <li><b>Numéro :</b> {{ juronCtx.num }}</li>
+    <li><b>À la case :</b> {{ juronCtx.numCase }}</li>
+    <li><b>À la bande :</b> {{ juronCtx.placeBande }}</li>
+    <li><b>À la page :</b> {{ juronCtx.numPage }}</li>
+    <li><b>À l'album :</b> {{ juronCtx.refAlbum }}</li>
+</ul>
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <a href="{{ path('admin.juronctx') }}" class="btn btn-primary" role="button">Retour</a>
+    <button class="btn btn-danger">Supprimer</button>    
+{{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+

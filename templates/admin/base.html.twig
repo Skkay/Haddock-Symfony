@@ -20,11 +20,12 @@
                 </div>
 				<div class="list-group list-group-flush">
 					<a href="{{ path('admin.home') }}" class="list-group-item list-group-item-action bg-light {% if app.request.get('_route') == 'admin.home' %} admin-active {% endif %}">Accueil</a>
-					<a href="{{ path('admin.album') }}" class="list-group-item list-group-item-action bg-light {% if app.request.get('_route') == 'admin.album' %} admin-active {% endif %}">Albums</a>
 					<a href="{{ path('admin.juron') }}" class="list-group-item list-group-item-action bg-light {% if app.request.get('_route') == 'admin.juron' %} admin-active {% endif %}">Jurons</a>
+					<a href="{{ path('admin.album') }}" class="list-group-item list-group-item-action bg-light {% if app.request.get('_route') == 'admin.album' %} admin-active {% endif %}">Albums</a>
 					<a href="{{ path('admin.page') }}" class="list-group-item list-group-item-action bg-light {% if app.request.get('_route') == 'admin.page' %} admin-active {% endif %}">Pages</a>
 					<a href="{{ path('admin.bande') }}" class="list-group-item list-group-item-action bg-light {% if app.request.get('_route') == 'admin.bande' %} admin-active {% endif %}">Bandes</a>
 					<a href="{{ path('admin.case') }}" class="list-group-item list-group-item-action bg-light {% if app.request.get('_route') == 'admin.case' %} admin-active {% endif %}">Cases</a>
+					<a href="{{ path('admin.juronctx') }}" class="list-group-item list-group-item-action bg-light {% if app.request.get('_route') == 'admin.juronctx' %} admin-active {% endif %}">Jurons Contextualisés</a>
 				</div>
 			</div>
 
@@ -32,7 +33,7 @@
 			<div id="page-content-wrapper">
 
 				<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-					<button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+					<button class="btn btn-primary" id="menu-toggle"><img src="{{ asset('images/bars-solid.svg') }}" width="25" height="25"></button>
 
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>

@@ -32,6 +32,11 @@ Le script est fourni à la racine du projet : haddock_base.sql. Les informations
 - Nom d'utilisateur : *admin*
 - Mot de passe : *admin*
 
+**Installation :**
+PHP ^7.1.3 requis
+`git clone https://github.com/Skkay/Haddock-Symfony`
+`composer install`
+
 ------------
 
 Projet non terminé.

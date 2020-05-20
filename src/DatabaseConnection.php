@@ -20,7 +20,8 @@ class DatabaseConnection
     public static function getDatabaseConnection()
     {
         try {
-            $pdo = new \PDO($_ENV['PDO_DSN'], $_ENV['PDO_USER'], $_ENV['PDO_PASSWD']);
+            $dsn = "mysql:dbname=" . $_ENV['PDO_DBNAME'] . ";host=" . $_ENV['PDO_HOST'] . ";charset=" . $_ENV['PDO_CHARSET'];
+            $pdo = new \PDO($dsn, $_ENV['PDO_USER'], $_ENV['PDO_PASSWD']);
             return $pdo;
         }
         catch (Exception $e)
